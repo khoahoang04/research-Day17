@@ -1,0 +1,16 @@
+{
+  "description": "Write Audit Log — mỗi dòng là 1 transaction attempt từ writer",
+  "fields": {
+    "transaction_id": "str (UUID4) — định danh duy nhất của mỗi lần ghi",
+    "writer_id": "str — định danh writer (e.g. 'writer_0')",
+    "operation": "str — 'APPEND' | 'MERGE' | 'UPDATE' | 'OPTIMIZE'",
+    "target_key": "str — partition_date hoặc id range bị tác động (JSON-serialized)",
+    "value": "dict — payload tóm tắt {num_rows, sum_amount, ids_range}",
+    "timestamp": "float — Unix timestamp lúc commit attempt bắt đầu",
+    "committed": "bool — True nếu commit thành công, False nếu abort",
+    "retry_count": "int — số lần retry trước khi thành công hoặc bỏ cuộc",
+    "commit_version": "int | None — Delta Lake version sau khi commit thành công",
+    "latency_ms": "float — tổng thời gian từ lúc bắt đầu đến khi commit/abort"
+  },
+  "note": "Đây là format chính thức để Thành viên B viết oracle.py"
+}

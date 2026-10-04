@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+import sys, io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+
 """
 setup_environment.py
 ====================
@@ -101,9 +106,9 @@ def setup_delta_table() -> None:
     write_deltalake(
         TABLE_PATH,
         df,
-        schema=TRANSACTIONS_SCHEMA,
         partition_by=["partition_date"],
         mode="overwrite",
+        schema_mode="overwrite",
     )
 
     dt = DeltaTable(TABLE_PATH)
@@ -111,7 +116,7 @@ def setup_delta_table() -> None:
     print(f"   - Version: {dt.version()}")
     print(f"   - Rows: {dt.to_pandas().shape[0]}")
     print(f"   - Partitions: {NUM_PARTITIONS}")
-    print(f"   - Schema:\n{dt.schema()}")
+    print(f"   - Schema:\n{dt.schema().to_arrow()}")
 
 
 def save_audit_schema() -> None:

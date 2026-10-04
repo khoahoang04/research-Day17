@@ -1,0 +1,98 @@
+# ==============================================================================
+# Environment & Sensitive Information (Bảo mật / Cấu hình nhạy cảm)
+# ==============================================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+*.pfx
+secrets/
+credentials.json
+
+# ==============================================================================
+# Python Bytecode & Cache (File tạm khi chạy Python)
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==============================================================================
+# Virtual Environments (Môi trường ảo)
+# ==============================================================================
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# ==============================================================================
+# Generated Data & Tables (Dữ liệu Delta Lake / Parquet phát sinh khi chạy)
+# ==============================================================================
+**/data/transactions/
+**/data/*.parquet
+*.parquet
+
+# Ngoại lệ: Giữ lại file schema giao tiếp giữa Member A & Member B
+!**/data/audit_log_schema.json
+
+# ==============================================================================
+# Experiment Outputs & Logs (Kết quả benchmark / logs)
+# ==============================================================================
+**/results/*.json
+**/results/*.csv
+!**/results/.gitkeep
+*.log
+
+# ==============================================================================
+# DuckDB & Databases (File database tạm / cục bộ)
+# ==============================================================================
+*.duckdb
+*.duckdb.wal
+*.sqlite
+*.sqlite3
+*.db
+
+# ==============================================================================
+# IDEs & Code Editors (Cấu hình editor cá nhân)
+# ==============================================================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ==============================================================================
+# Operating System Artifacts (File rác hệ điều hành Windows / macOS)
+# ==============================================================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# ==============================================================================
+# Testing & Jupyter Notebooks Cache
+# ==============================================================================
+.pytest_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
