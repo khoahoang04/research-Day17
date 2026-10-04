@@ -1,0 +1,17 @@
+# Core storage & data processing
+deltalake>=0.18.0
+duckdb>=0.10.0
+pandas>=2.0.0
+pyarrow>=14.0.0
+
+# Concurrency & utilities
+tenacity>=8.2.0      # Retry logic with exponential backoff
+faker>=24.0.0         # Generate realistic test data
+
+# Metrics & logging
+rich>=13.0.0          # Pretty console output
+python-dotenv>=1.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-timeout>=2.1.0
